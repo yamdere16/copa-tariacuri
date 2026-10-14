@@ -147,38 +147,39 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================================
     // 3. EFECTO SCROLL INTERACTIVO DEL MAGUEY
     // ============================================================
+ // ============================================================
+    // (Nace el logo)
+    // ============================================================
     (function initMagueyScrollEffect() {
         let isInHero = true;
         const heroHeight = heroSection.offsetHeight;
 
-        // Configuración de animación de cada penca
-        // Cada penca tiene: dirección de salida (x, y), rotación adicional, delay
+        // Configuración de animación de las pencas
         const pencaAnimations = [
-            { x: -180, y: -120, rot: -45, delay: 0.0 },      // penca-1 (izq sup)
-            { x: -220, y: 0, rot: -60, delay: 0.05 },         // penca-2 (izq med)
-            { x: -180, y: 120, rot: -75, delay: 0.1 },        // penca-3 (izq inf)
-            { x: 180, y: -120, rot: 45, delay: 0.0 },         // penca-4 (der sup)
-            { x: 220, y: 0, rot: 60, delay: 0.05 },           // penca-5 (der med)
-            { x: 180, y: 120, rot: 75, delay: 0.1 },          // penca-6 (der inf)
-            { x: -80, y: -180, rot: -30, delay: 0.15 },       // penca-7 (sup izq)
-            { x: 80, y: -180, rot: 30, delay: 0.15 }          // penca-8 (sup der)
+            { x: -220, y: -150, rot: -60, delay: 0.0 },      // penca-1
+            { x: -260, y: 0, rot: -80, delay: 0.02 },         // penca-2
+            { x: -220, y: 150, rot: -90, delay: 0.04 },        // penca-3
+            { x: 220, y: -150, rot: 60, delay: 0.0 },          // penca-4
+            { x: 260, y: 0, rot: 80, delay: 0.02 },           // penca-5
+            { x: 220, y: 150, rot: 90, delay: 0.04 },          // penca-6
+            { x: -100, y: -220, rot: -40, delay: 0.06 },       // penca-7
+            { x: 100, y: -220, rot: 40, delay: 0.06 }          // penca-8
         ];
 
         function updateMagueyAnimation() {
             const scrollY = window.scrollY;
-            const windowHeight = window.innerHeight;
             const heroBottom = heroSection.offsetTop + heroHeight;
 
-            // Calcular progreso del scroll dentro del hero (0 a 1)
-            let progress = scrollY / heroHeight;
+            // Progreso del scroll dentro del hero (0 a 1)
+            let progress = scrollY / (heroHeight * 0.8);
             progress = Math.max(0, Math.min(1, progress));
 
-            // Ocultar indicador de scroll después de un poco de scroll
-            if (progress > 0.1 && heroScrollIndicator) {
-                heroScrollIndicator.style.opacity = Math.max(0, 1 - progress * 5);
+            // Ocultar indicador de scroll
+            if (heroScrollIndicator) {
+                heroScrollIndicator.style.opacity = Math.max(0, 1 - progress * 4);
             }
 
-            // Animar pencas: se "despencan" hacia los lados
+            // 1. LAS PENCAS SE ABREN DANDO PASO AL NACIMIENTO
             pencas.forEach(function(penca, index) {
                 if (!penca) return;
                 const anim = pencaAnimations[index];
@@ -188,46 +189,54 @@ document.addEventListener('DOMContentLoaded', function() {
                 const translateX = anim.x * easeProgress;
                 const translateY = anim.y * easeProgress;
                 const rotate = anim.rot * easeProgress;
-                const opacity = Math.max(0, 1 - easeProgress * 1.2);
-                const scale = Math.max(0.5, 1 - easeProgress * 0.3);
+                const opacity = Math.max(0, 1 - easeProgress * 1.5);
+                const scale = Math.max(0.4, 1 - easeProgress * 0.4);
 
                 penca.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotate}deg) scale(${scale})`;
                 penca.style.opacity = opacity;
             });
 
-            // Zoom al corazón del maguey
+            // 2. EL CORAZÓN DEL MAGUEY SE ABRE Y SE DISUELVE
             if (corazon) {
                 const zoomProgress = easeOutCubic(progress);
-                const scale = 1 + zoomProgress * 0.8;
+                const scale = 1 + zoomProgress * 0.5; // Ligero crecimiento antes de disolverse
+                const opacity = Math.max(0, 1 - progress * 2.2); // Desaparece rápido para revelar el centro
+
                 corazon.style.transform = `scale(${scale})`;
+                corazon.style.opacity = opacity;
             }
 
-            // Logo emerge del corazón
+            // 3. EL LOGO "NACE" Y EMERGE DEL CENTRO DEL MAGUEY
             if (logoEmerge) {
-                const logoProgress = Math.max(0, (progress - 0.3) / 0.5);
+                // Empieza a nacer casi de inmediato al mover el scroll (al 2% del progreso)
+                const logoProgress = Math.max(0, (progress - 0.02) / 0.7);
+                
+                // Efecto elástico (Back Out) para que dé la sensación de brotar / germinar
                 const logoEase = easeOutBack(Math.min(1, logoProgress));
-                const logoScale = logoEase;
-                const logoOpacity = Math.min(1, logoProgress * 2);
+                
+                const logoScale = logoEase * 1.1; // Crece hasta su tamaño final destacado
+                const logoOpacity = Math.min(1, logoProgress * 3); // Se vuelve visible de inmediato
+
+                // Nace centrado y se expande desde el núcleo
                 logoEmerge.style.transform = `translate(-50%, -50%) scale(${logoScale})`;
                 logoEmerge.style.opacity = logoOpacity;
             }
 
-            // Verificar si salimos del hero
             isInHero = scrollY < heroBottom;
         }
 
-        // Funciones de easing
+        // Función Easing para suavizado
         function easeOutCubic(t) {
             return 1 - Math.pow(1 - t, 3);
         }
 
+        // Función Easing con rebote elástico suave para el nacimiento
         function easeOutBack(t) {
             const c1 = 1.70158;
             const c3 = c1 + 1;
             return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
         }
 
-        // Usar requestAnimationFrame para rendimiento óptimo
         let ticking = false;
         window.addEventListener('scroll', function() {
             if (!ticking) {
@@ -239,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Inicializar
         updateMagueyAnimation();
     })();
 

@@ -18,7 +18,7 @@
     <header class="header" id="header">
         <div class="header-container">
             <a href="#hero" class="header-logo" id="header-logo">
-                <img src="{{ url_for('static', filename='images/logo-copa-tariacuri.jpeg') }}" alt="Logo Copa Tariácuri" class="header-logo-img" id="header-logo-img">
+                <img src="{{ url_for('static', filename='images/logo-copa-tariacuri.png') }}" alt="Logo Copa Tariácuri" class="header-logo-img" id="header-logo-img">
                 <span class="header-logo-text">Copa Tariácuri</span>
             </a>
             <nav class="header-nav" id="header-nav">
@@ -51,9 +51,9 @@
             <p class="hero-location" id="hero-location">Michoacán, México</p>
         </div>
         <div class="hero-maguey-container" id="hero-maguey-container">
-            <!-- Pencas del maguey (recortes de revista / paper cutout) -->
+            <!-- Pencas del maguey -->
             <div class="maguey-penca maguey-penca-1" id="maguey-penca-1">
-                <img src="{{ url_for('static', filename='images/penca-1.png') }}" alt="Penca de maguey izquierda superior" class="maguey-penca-img">
+                <img src="{{ url_for('static', filename='images/penca-1.jpeg') }}" alt="Penca de maguey izquierda superior" class="maguey-penca-img">
             </div>
             <div class="maguey-penca maguey-penca-2" id="maguey-penca-2">
                 <img src="{{ url_for('static', filename='images/penca-2.png') }}" alt="Penca de maguey izquierda media" class="maguey-penca-img">
@@ -113,6 +113,7 @@
                         Esta copa  quiere reconocer si tu sangre tiene pasión, si tus manos 
                         tienen callos y tu destilado lleva el orgullo de tu gente. Es hora de reclamar 
                         el trono que por historia y trabajo, te pertenece.
+                    </p>
                     <p class="presentacion-paragraph">
                         Durante 2 días días de celebración, se reunirán jueces, 
                         maestros,  destiladores, sumilleres, productores 
@@ -127,7 +128,7 @@
                     </p>
                 </div>
                 <div class="presentacion-image">
-                    <img src="{{ url_for('static', filename='images/presentacion-maguey.jpg') }}" alt="Maguey en paisaje mexicano" class="presentacion-img">
+                    <img src="{{ url_for('static', filename='images/maguey.png') }}" alt="Maguey en paisaje mexicano" class="presentacion-img">
                 </div>
             </div>
         </div>
@@ -210,7 +211,7 @@
             <div class="concurso-content">
                 <div class="concurso-intro">
                     <p class="concurso-paragraph">
-                        <strong>"Tariácuri no premia etiquetas, consagra al maestro que domina el fuego y hace temblar al mundo con el alma de su tierra"</strong>
+                        <i>"Tariácuri no premia etiquetas, consagra al maestro que domina el fuego y hace temblar al mundo con el alma de su tierra"</i>
                     </p>
                 </div>
                 <div class="concurso-grid">
@@ -227,8 +228,7 @@
                         <div class="concurso-card-number">02</div>
                         <h3 class="concurso-card-title">Clasificación</h3>
                         <p class="concurso-card-text">
-                            Las muestras se organizan por categoría: Mezcal Artesanal, Mezcal Ancestral, 
-                            Tequila, Bacanora, Raicilla, Sotol y Categoría Especial. 
+                            Las muestras se organizan por categoría: . 
                         </p>
                     </div>
                     <div class="concurso-card">
@@ -244,7 +244,7 @@
                         <h3 class="concurso-card-title">Deliberación y Premiación</h3>
                         <p class="concurso-card-text">
                             Los resultados se tabulan y verifican por un jurado evaluador de cata.
-                             Se otorgan diplomas con medalla, 20 de Gran Oro, 30 de Oro y 50 de Plata.
+                            Se otorgan diplomas con medalla, 20 de Gran Oro, 30 de Oro y 50 de Plata.
                         </p>
                     </div>
                 </div>
@@ -272,39 +272,42 @@
             </div>
         </div>
     </section>
-  <!-- ============================================ -->
-<!-- POR SI NO ENCUENTRAN SU CATEGORÍA DE PRODUCTO-->
 <!-- ============================================ -->
-<section class="contacto section-animate" id="contacto">
+<!-- Por si no encuentran su categoría          -->
+<!-- ============================================ -->
+<section class="categoria-desconocida section-animate" id="categoria-desconocida">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header" style="text-align: center;">
             <span class="section-tag">¿No encuentras tu producto?</span>
             <div class="section-divider"></div>
         </div>
-        <div class="contacto-content">
-            <div class="contacto-info">
-                <h3 class="contacto-info-title">Descríbelo aquí y nuestro Comité Técnico te ayudará a clasificarlo.</h3>
-                <p class="contacto-info-text">
+        
+        <div class="desconocida-content"    >
+            <div class="desconocida-info">
+                <h3 class="desconocida-info-title">Descríbelo aquí y nuestro Comité Técnico te ayudará a clasificarlo.</h3>
+                <p class="desconocida-info-text">
                     Eso nos evita perder participantes por una categoría que se nos haya escapado.
                 </p>
+            </div>
 
-            <!-- Formulario con cuestionario de clasificación -->
-            <form class="contacto-form" id="contacto-form" action="https://formspree.io/f/TU_FORM_ID" method="POST">
+            <!-- Formulario exclusivo de Clasificación -->
+            <form class="desconocida-form" id="clasificacion-form" action="https://formspree.io/f/TU_FORM_ID" method="POST">
                 
                 <!-- Datos generales del participante -->
-                <div class="contacto-form-group">
-                    <label for="contacto-nombre" class="contacto-form-label">Nombre completo / Marca</label>
-                    <input type="text" id="contacto-nombre" name="nombre" class="contacto-form-input" placeholder="Tu nombre o nombre de la marca" required>
+                <div class="desconocida-form-group">
+                    <label for="desc-nombre" class="desconocida-form-label">Nombre completo / Marca</label>
+                    <input type="text" id="desc-nombre" name="nombre" class="desconocida-form-input" placeholder="Tu nombre o nombre de la marca" required>
                 </div>
-                <div class="contacto-form-group">
-                    <label for="contacto-email" class="contacto-form-label">Correo electrónico de contacto</label>
-                    <input type="email" id="contacto-email" name="email" class="contacto-form-input" placeholder="tu@email.com" required>
+
+                <div class="desconocida-form-group">
+                    <label for="desc-email" class="desconocida-form-label">Correo electrónico de contacto</label>
+                    <input type="email" id="desc-email" name="email" class="desconocida-form-input" placeholder="tu@email.com" required>
                 </div>
 
                 <!-- PREGUNTA 1: ¿Producto mexicano? -->
-                <div class="contacto-form-group">
-                    <label class="contacto-form-label">1. ¿Tu producto es mexicano?</label>
-                    <select id="es-mexicano" name="es_mexicano" class="contacto-form-input" required onchange="toggleMexicano(this.value)">
+                <div class="desconocida-form-group">
+                    <label class="desconocida-form-label">1. ¿Tu producto es mexicano?</label>
+                    <select id="es-mexicano" name="es_mexicano" class="desconocida-form-input" required onchange="toggleMexicano(this.value)">
                         <option value="" disabled selected>Selecciona una opción</option>
                         <option value="Si">Sí</option>
                         <option value="No">No</option>
@@ -313,18 +316,18 @@
 
                 <!-- Sub-opciones para Producto Mexicano -->
                 <div id="opciones-mexicano" style="display: none;">
-                    <div class="contacto-form-group">
-                        <label class="contacto-form-label">Tipo de clasificación nacional:</label>
-                        <select id="tipo-mexicano" name="tipo_mexicano" class="contacto-form-input" onchange="toggleDetalleMexicano(this.value)">
+                    <div class="desconocida-form-group">
+                        <label class="desconocida-form-label">Tipo de clasificación nacional:</label>
+                        <select id="tipo-mexicano" name="tipo_mexicano" class="desconocida-form-input" onchange="toggleDetalleMexicano(this.value)">
                             <option value="" disabled selected>Selecciona el tipo</option>
                             <option value="Con Denominación de Origen">A. Tiene Denominación de Origen</option>
                             <option value="Sin Denominación de Origen">B. No tiene Denominación de Origen</option>
                         </select>
                     </div>
 
-                    <div class="contacto-form-group" id="grupo-denominacion" style="display: none;">
-                        <label class="contacto-form-label">Especifica Denominación de Origen:</label>
-                        <select name="denominacion_origen" class="contacto-form-input">
+                    <div class="desconocida-form-group" id="grupo-denominacion" style="display: none;">
+                        <label class="desconocida-form-label">Especifica Denominación de Origen:</label>
+                        <select name="denominacion_origen" class="desconocida-form-input">
                             <option value="" disabled selected>Selecciona bebida</option>
                             <option value="Tequila">Tequila</option>
                             <option value="Mezcal">Mezcal</option>
@@ -336,9 +339,9 @@
                         </select>
                     </div>
 
-                    <div class="contacto-form-group" id="grupo-no-denominacion" style="display: none;">
-                        <label class="contacto-form-label">Especifica tipo de bebida:</label>
-                        <select name="bebida_no_denominacion" class="contacto-form-input">
+                    <div class="desconocida-form-group" id="grupo-no-denominacion" style="display: none;">
+                        <label class="desconocida-form-label">Especifica tipo de bebida:</label>
+                        <select name="bebida_no_denominacion" class="desconocida-form-input">
                             <option value="" disabled selected>Selecciona tipo</option>
                             <option value="Destilado de agave">Destilado de agave</option>
                             <option value="Pulque/Aguamiel">Pulque / Aguamiel</option>
@@ -356,9 +359,9 @@
                 </div>
 
                 <!-- PREGUNTA 2: ¿Producto internacional? -->
-                <div class="contacto-form-group" id="grupo-internacional" style="display: none;">
-                    <label class="contacto-form-label">2. Región de procedencia internacional:</label>
-                    <select name="region_internacional" class="contacto-form-input">
+                <div class="desconocida-form-group" id="grupo-internacional" style="display: none;">
+                    <label class="desconocida-form-label">2. Región de procedencia internacional:</label>
+                    <select name="region_internacional" class="desconocida-form-input">
                         <option value="" disabled selected>Selecciona la región</option>
                         <option value="Norteamérica">Norteamérica</option>
                         <option value="Sudamérica">Sudamérica</option>
@@ -368,14 +371,14 @@
                         <option value="Otras regiones">Otras regiones</option>
                     </select>
 
-                    <label class="contacto-form-label" style="margin-top: 10px;">Tipo de bebida internacional (Whisky, Bourbon, Pisco, Cachaça, Cognac, Gin, Vodka, Ron, Absenta, etc.):</label>
-                    <input type="text" name="bebida_internacional" class="contacto-form-input" placeholder="Ej. Whisky, Bourbon, Pisco, Cognac, etc.">
+                    <label class="desconocida-form-label" style="margin-top: 10px;">Tipo de bebida internacional:</label>
+                    <input type="text" name="bebida_internacional" class="desconocida-form-input" placeholder="Ej. Whisky, Bourbon, Pisco, Cognac, etc.">
                 </div>
 
                 <!-- PREGUNTA 3: ¿Es un licor? -->
-                <div class="contacto-form-group">
-                    <label class="contacto-form-label">3. ¿Es un licor?</label>
-                    <select name="categoria_licor" class="contacto-form-input">
+                <div class="desconocida-form-group">
+                    <label class="desconocida-form-label">3. ¿Es un licor?</label>
+                    <select name="categoria_licor" class="desconocida-form-input">
                         <option value="No es licor">No es un licor / No aplica</option>
                         <option value="Frutal">Frutal — elaborado principalmente con frutas</option>
                         <option value="Herbal/Botánico">Herbal/Botánico — elaborado con hierbas, flores, especias o plantas</option>
@@ -386,9 +389,9 @@
                 </div>
 
                 <!-- PREGUNTA 4: Expresión / Maduración -->
-                <div class="contacto-form-group">
-                    <label class="contacto-form-label">4. ¿Qué expresión o tiempo de maduración tiene?</label>
-                    <select name="expresion" class="contacto-form-input" required>
+                <div class="desconocida-form-group">
+                    <label class="desconocida-form-label">4. ¿Qué expresión o tiempo de maduración tiene?</label>
+                    <select name="expresion" class="desconocida-form-input" required>
                         <option value="" disabled selected>Selecciona la expresión</option>
                         <option value="Blanco / Joven">Blanco / Joven</option>
                         <option value="Oro">Oro</option>
@@ -400,48 +403,17 @@
                     </select>
                 </div>
 
-                <!-- Descripción adicional opcional -->
-                <div class="contacto-form-group">
-                    <label for="contacto-mensaje" class="contacto-form-label">Detalles o comentarios adicionales</label>
-                    <textarea id="contacto-mensaje" name="mensaje" class="contacto-form-textarea" rows="3" placeholder="Describe brevemente las características de tu producto..."></textarea>
+                <!-- Descripción adicional -->
+                <div class="desconocida-form-group">
+                    <label for="desc-mensaje" class="desconocida-form-label">Detalles o comentarios adicionales</label>
+                    <textarea id="desc-mensaje" name="mensaje" class="desconocida-form-textarea" rows="3" placeholder="Describe brevemente las características de tu producto..."></textarea>
                 </div>
 
-                <button type="submit" class="contacto-form-submit">Enviar para Clasificación</button>
+                <button type="submit" class="desconocida-form-submit">Enviar para Clasificación</button>
             </form>
         </div>
     </div>
 </section>
-
-<!-- Script para la lógica interactiva del formulario -->
-<script>
-function toggleMexicano(val) {
-    const opcionesMex = document.getElementById('opciones-mexicano');
-    const grupoInt = document.getElementById('grupo-internacional');
-    
-    if (val === 'Si') {
-        opcionesMex.style.display = 'block';
-        grupoInt.style.display = 'none';
-    } else if (val === 'No') {
-        opcionesMex.style.display = 'none';
-        grupoInt.style.display = 'block';
-        document.getElementById('grupo-denominacion').style.display = 'none';
-        document.getElementById('grupo-no-denominacion').style.display = 'none';
-    }
-}
-
-function toggleDetalleMexicano(val) {
-    const grupoDenom = document.getElementById('grupo-denominacion');
-    const grupoNoDenom = document.getElementById('grupo-no-denominacion');
-
-    if (val === 'Con Denominación de Origen') {
-        grupoDenom.style.display = 'block';
-        grupoNoDenom.style.display = 'none';
-    } else if (val === 'Sin Denominación de Origen') {
-        grupoDenom.style.display = 'none';
-        grupoNoDenom.style.display = 'block';
-    }
-}
-</script>
 
     <!-- ============================================ -->
     <!-- JUECES -->
@@ -464,10 +436,12 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-1.jpg') }}" alt="Fotografía del Juez 1" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">?????</h3>
-                        <p class="juez-card-title">Por definir</p>
+                        <h3 class="juez-card-name">Tsitsiki Martínez Hernández</h3>
+                        <p class="juez-card-title">Licenciada en Gastronomía</p>
                         <p class="juez-card-bio">
-                            ----
+                            Originaria de Morelia Michoacán. Ha trabajado en diferentes ámbitos gastronómicos como restaurantería, 
+                            eventos, cursos y personal chef, también se ha desenvuelto en el ambiente con proyectos de barra y 
+                            catas de destilados y es docente en la Universidad Tecnológica de Morelia. 
                         </p>
                     </div>
                 </div>
@@ -477,13 +451,12 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-2.jpg') }}" alt="Fotografía del Juez 2" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">?????</h3>
-                        <p class="juez-card-title">Química Especialista en Fermentación</p>
+                        <h3 class="juez-card-name">Rene Anthoan Souberbielle Miranda</h3>
+                        <p class="juez-card-title">Apasionado del mundo de los destilados</p>
                         <p class="juez-card-bio">
-                            Investigadora del CIATEJ con doctorado en Biotecnología. Ha publicado más 
-                            de 40 artículos científicos sobre microbiología del mezcal. Su trabajo ha 
-                            sido fundamental para entender las comunidades microbianas que dan carácter 
-                            único a cada destilado.
+                            Estudió y se ha disciplinado en  cata analítica y hedónica. Curso de Cata Analítica de Destilados 
+                            Nacionales e Internacionales por el Centro de Capacitación para el Trabajo Industrial. Aficionado 
+                            al conocimiento de Destilados y Cigarros Puros.
                         </p>
                     </div>
                 </div>
@@ -493,13 +466,11 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-3.jpg') }}" alt="Fotografía del Juez 3" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">Ing. Roberto Sánchez Torres</h3>
-                        <p class="juez-card-title">Productor y Maestro Mezcalero</p>
+                        <h3 class="juez-card-name">Isaac Emmanuel Bastida Ríos</h3>
+                        <p class="juez-card-title">Licenciado en Gastronomía</p>
                         <p class="juez-card-bio">
-                            Tercera generación de maestros mezcaleros en Oaxaca. Ha ganado el Gran Premio 
-                            Nacional del Mezcal en tres ocasiones. Combina técnicas ancestrales con 
-                            innovación sostenible, liderando proyectos de reforestación de agave en 
-                            comunidades zapotecas.
+                            con especialidad de Sommelier, Certificado por la  WSET en Nivel 2 con distinción y Nivel 3 con 
+                            mérito en Vinos; ha sido juez catador en el Concurso de Marcas y Destilados Mexicanos en 2025 y 2026.
                         </p>
                     </div>
                 </div>
@@ -509,13 +480,12 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-4.jpg') }}" alt="Fotografía del Juez 4" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">Mtra. Elena Ruiz Castañeda</h3>
-                        <p class="juez-card-title">Historiadora del Agave y Etnógrafa</p>
+                        <h3 class="juez-card-name">Diego Armando Venegas Orozco</h3>
+                        <p class="juez-card-title">Apasionado por la cultura de los destilados mexicanos</p>
                         <p class="juez-card-bio">
-                            Especialista en la relación entre pueblos originarios y el maguey. Ha 
-                            documentado más de 150 prácticas tradicionales de destilación en México. 
-                            Su libro "El Agave y el Tiempo" es referencia obligada en estudios 
-                            etnobotánicos del país.
+                            Cuenta con la certificación EC-1456 como Catador de Destilados Mexicanos con Denominación de Origen. 
+                            Es miembro activo del Consejo Mexicano Promotor de la Raicilla, C.M.P.R donde contribuye al fortalecimiento 
+                            y difusión de esta bebida tradicional mexicana.
                         </p>
                     </div>
                 </div>
@@ -525,12 +495,11 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-5.jpg') }}" alt="Fotografía del Juez 5" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">Lic. Francisco Morales Duarte</h3>
-                        <p class="juez-card-title">Sommelier y Director de Barra</p>
+                        <h3 class="juez-card-name">Víctor Hugo García Cázares</h3>
+                        <p class="juez-card-title">Licenciado en Gastronomía</p>
                         <p class="juez-card-bio">
-                            Ganador del Campeonato Nacional de Coctelería 2023. Ha diseñado cartas de 
-                            destilados para más de 50 restaurantes de alta cocina en Ciudad de México, 
-                            Nueva York y Barcelona. Es embajador de marcas premium de tequila y mezcal.
+                            Sommelier por parte de la ONSOM (Organización de Sommeliers de México). En octubre del 2025 ganador al premio
+                            “Merito Restaurantero” por parte de la CANIRAC como mejor sommelier del año del estado de Michoacan.
                         </p>
                     </div>
                 </div>
@@ -540,13 +509,13 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-6.jpg') }}" alt="Fotografía del Juez 6" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">Dra. Patricia Gómez Luna</h3>
-                        <p class="juez-card-title">Ingeniera Química en Alimentos</p>
+                        <h3 class="juez-card-name">Erik Rodríguez Mejía</h3>
+                        <p class="juez-card-title">Sommelier profesional</p>
                         <p class="juez-card-bio">
-                            Experta en análisis cromatográfico de destilados. Ha desarrollado métodos 
-                            para detectar adulteraciones en mezcal y tequila. Trabaja con la UNAM y 
-                            el CONACYT en proyectos de trazabilidad y autenticidad de bebidas 
-                            espirituosas mexicanas.
+                            Especializado en la creación de experiencias sensoriales innovadoras y en la organización de catas personalizadas. 
+                            Destaca por su sensibilidad sensorial, su excelente atención al cliente y  capacidad para asesorar en la elección de 
+                            etiquetas. Docente de profesión, lo que le permite desarrollar dinámicas y espacios pedagógicos-didácticos en distintos 
+                            ámbitos del conocimiento.
                         </p>
                     </div>
                 </div>
@@ -556,13 +525,10 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-7.jpg') }}" alt="Fotografía del Juez 7" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">Mtro. Jorge Hernández Pineda</h3>
-                        <p class="juez-card-title">Especialista en Normatividad y DO</p>
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
                         <p class="juez-card-bio">
-                            Ex-director del Consejo Regulador del Tequila. Ha participado en la 
-                            redacción de normas oficiales mexicanas para mezcal, bacanora y sotol. 
-                            Es consultor de gobiernos estatales en la protección de denominaciones 
-                            de origen de destilados.
+                            ----
                         </p>
                     </div>
                 </div>
@@ -572,13 +538,10 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-8.jpg') }}" alt="Fotografía del Juez 8" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">Mtra. Isabel Torres Navarro</h3>
-                        <p class="juez-card-title">Periodista Gastronómica y Escritora</p>
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
                         <p class="juez-card-bio">
-                            Columnista de destilados en medios nacionales e internacionales. Ha 
-                            entrevistado a más de 300 maestros mezcaleros. Su podcast "Agave y 
-            Palabra" cuenta con más de 2 millones de reproducciones y es referencia 
-                            obligada en el mundo del mezcal.
+                            ----
                         </p>
                     </div>
                 </div>
@@ -588,13 +551,10 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-9.jpg') }}" alt="Fotografía del Juez 9" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">Ing. Miguel Ángel Cruz Vega</h3>
-                        <p class="juez-card-title">Ingeniero Agrónomo Especialista en Agave</p>
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
                         <p class="juez-card-bio">
-                            Ha dedicado 20 años al estudio de las especies de agave en México. 
-                            Ha catalogado más de 200 variedades y sus usos destiladores. Trabaja 
-                            con comunidades indígenas en programas de conservación in situ de 
-                            agaves silvestres y su hábitat natural.
+                            ----
                         </p>
                     </div>
                 </div>
@@ -604,19 +564,147 @@ function toggleDetalleMexicano(val) {
                         <img src="{{ url_for('static', filename='images/juez-10.jpg') }}" alt="Fotografía del Juez 10" class="juez-card-img">
                     </div>
                     <div class="juez-card-info">
-                        <h3 class="juez-card-name">Dra. Laura Martínez Soto</h3>
-                        <p class="juez-card-title">Investigadora en Sostenibilidad y Agave</p>
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
                         <p class="juez-card-bio">
-                            Doctora en Ciencias Ambientales por la UNAM. Lidera proyectos de 
-                            sostenibilidad en la cadena de valor del mezcal. Ha diseñado 
-                            protocolos de manejo responsable de agave que han sido adoptados 
-                            por más de 80 palenques en seis estados de la República Mexicana.
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 11 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-11.jpg') }}" alt="Fotografía del Juez 11" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 12 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-12.jpg') }}" alt="Fotografía del Juez 12" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 13 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-13.jpg') }}" alt="Fotografía del Juez 13" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 14 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-14.jpg') }}" alt="Fotografía del Juez 14" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 15 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-15.jpg') }}" alt="Fotografía del Juez 15" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 16 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-16.jpg') }}" alt="Fotografía del Juez 16" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 17 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-17.jpg') }}" alt="Fotografía del Juez 17" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 18 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-18.jpg') }}" alt="Fotografía del Juez 18" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 19 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-19.jpg') }}" alt="Fotografía del Juez 19" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
+                        </p>
+                    </div>
+                </div>
+                <!-- Juez 20 -->
+                <div class="juez-card">
+                    <div class="juez-card-photo">
+                        <img src="{{ url_for('static', filename='images/juez-20.jpg') }}" alt="Fotografía del Juez 20" class="juez-card-img">
+                    </div>
+                    <div class="juez-card-info">
+                        <h3 class="juez-card-name">?????</h3>
+                        <p class="juez-card-title">Por definir</p>
+                        <p class="juez-card-bio">
+                            ----
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+                
 
     <!-- ============================================ -->
     <!-- REGISTRO -->
@@ -660,29 +748,19 @@ function toggleDetalleMexicano(val) {
             </p>
             <div class="patrocinadores-grid">
                 <div class="patrocinador-card">
-                    <img src="{{ url_for('static', filename='images/patrocinador1.png') }}" alt="Patrocinador 1" class="patrocinador-img">
+                    <img src="{{ url_for('static', filename='images/patrocinador1.jpeg') }}" alt="Patrocinador 1" class="patrocinador-img">
                 </div>
                 <div class="patrocinador-card">
-                    <img src="{{ url_for('static', filename='images/patrocinador2.png') }}" alt="Patrocinador 2" class="patrocinador-img">
+                    <img src="{{ url_for('static', filename='images/patrocinador2.jpeg') }}" alt="Patrocinador 2" class="patrocinador-img">
                 </div>
                 <div class="patrocinador-card">
-                    <img src="{{ url_for('static', filename='images/patrocinador3.png') }}" alt="Patrocinador 3" class="patrocinador-img">
+                    <img src="{{ url_for('static', filename='images/patrocinador3.jpg') }}" alt="Patrocinador 3" class="patrocinador-img">
                 </div>
                 <div class="patrocinador-card">
-                    <img src="{{ url_for('static', filename='images/patrocinador4.png') }}" alt="Patrocinador 4" class="patrocinador-img">
+                    <img src="{{ url_for('static', filename='images/patrocinador4.jpeg') }}" alt="Patrocinador 4" class="patrocinador-img">
                 </div>
                 <div class="patrocinador-card">
-                    <img src="{{ url_for('static', filename='images/patrocinador5.png') }}" alt="Patrocinador 5" class="patrocinador-img">
-                </div>
-                <div class="patrocinador-card">
-                    <img src="{{ url_for('static', filename='images/patrocinador6.png') }}" alt="Patrocinador 6" class="patrocinador-img">
-                </div>
-                <div class="patrocinador-card">
-                    <img src="{{ url_for('static', filename='images/patrocinador7.png') }}" alt="Patrocinador 7" class="patrocinador-img">
-                </div>
-                <div class="patrocinador-card">
-                    <img src="{{ url_for('static', filename='images/patrocinador8.png') }}" alt="Patrocinador 8" class="patrocinador-img">
-                </div>
+                    <img src="{{ url_for('static', filename='images/patrocinador5.jpeg') }}" alt="Patrocinador 5" class="patrocinador-img">
             </div>
         </div>
     </section>
